@@ -1,0 +1,68 @@
+12-23 00:01:38 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 326:Plugin executed on: 'win32'
+12-23 00:01:38 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 327:Plugin executed with python version: '3.9.6 (default, Sep 27 2021, 21:15:11) [MSC v.1929 64 bit (AMD64)]'
+12-23 00:01:38 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 328:KiCad build version: (6.0.0)
+12-23 00:01:38 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 329:Plugin version: 1.2.5
+12-23 00:01:38 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 330:Frame repr: <wx._core.Frame object at 0x00000127F6EECCA0>
+12-23 00:01:38 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 354:Preparing replicator with LED18 as a reference
+12-23 00:01:38 com_github_MitjaNemec_ReplicateLayout.replicate_layout 110:getting a list of all footprints on board
+12-23 00:01:38 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 378:source anchor footprint is 'LED18'
+Located on: ['LED_Array_1']
+With filenames: ['led_array_1.kicad_sch']
+With sheet_id:['LED_Array_1']
+12-23 00:01:38 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 385:Corresponding footprints are 
+[('LED36', ['LED_Array_2']), ('LED18', ['LED_Array_1']), ('LED58', ['LED_Array_3']), ('LED80', ['LED_Array_4'])]
+12-23 00:01:38 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 397:Showing dialog
+12-23 00:01:38 com_github_MitjaNemec_ReplicateLayout.replicate_layout 357:constructing a list of sheets suitable for replication on level:'LED_Array_1', file:'led_array_1.kicad_sch'
+12-23 00:01:38 com_github_MitjaNemec_ReplicateLayout.replicate_layout 394:suitable sheets are:[['LED_Array_2'], ['LED_Array_3'], ['LED_Array_4']]
+12-23 00:01:38 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1314:Level selected: ['LED_Array_1']
+12-23 00:01:39 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1149:Filtering list of tracks
+12-23 00:01:39 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 403:Toolbar position: wx.Point(1699, 125)
+12-23 00:01:39 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 409:Dialog position: wx.Point(1335, 125)
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 357:constructing a list of sheets suitable for replication on level:'LED_Array_1', file:'led_array_1.kicad_sch'
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 394:suitable sheets are:[['LED_Array_2'], ['LED_Array_3'], ['LED_Array_4']]
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 188:Replicating layout
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 203:Starting replication of sheets: [['LED_Array_2'], ['LED_Array_3'], ['LED_Array_4']]
+on level: ['LED_Array_1']
+with tracks=True, zone=True, text=True, text=True, intersecting=False, remove=False, locked footprints=False, group_only=False
+12-23 00:01:45 root 266:updating GUI message: 'Preparing for replication'
+12-23 00:01:45 root 271:updating GUI with: 0
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 273:Getting the list of source footprints
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 283:Getting the list of all the remaining footprints
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 290:Getting source tracks
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1149:Filtering list of tracks
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 294:Getting source zones
+12-23 00:01:45 root 271:updating GUI with: 50
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 298:Getting source text items
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 302:Getting source drawing items
+12-23 00:01:45 root 266:updating GUI message: 'Replicating footprints'
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 708:Replicating footprints
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 714:Replicating footprints on sheet ['LED_Array_2']
+12-23 00:01:45 root 271:updating GUI with: 9
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 714:Replicating footprints on sheet ['LED_Array_3']
+12-23 00:01:45 root 271:updating GUI with: 45
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 714:Replicating footprints on sheet ['LED_Array_4']
+12-23 00:01:45 root 271:updating GUI with: 84
+12-23 00:01:45 root 266:updating GUI message: 'Replicating tracks'
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 874:Replicating tracks
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 880:Replicating tracks on sheet ['LED_Array_2']
+12-23 00:01:45 root 271:updating GUI with: 22
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 880:Replicating tracks on sheet ['LED_Array_3']
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 880:Replicating tracks on sheet ['LED_Array_4']
+12-23 00:01:45 root 271:updating GUI with: 66
+12-23 00:01:45 root 266:updating GUI message: 'Replicating zones'
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 934:Replicating zones
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 941:Replicating zones on sheet ['LED_Array_2']
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 941:Replicating zones on sheet ['LED_Array_3']
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 941:Replicating zones on sheet ['LED_Array_4']
+12-23 00:01:45 root 266:updating GUI message: 'Replicating text'
+12-23 00:01:45 root 271:updating GUI with: 0
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1005:Replicating text
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1012:Replicating text on sheet ['LED_Array_2']
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1012:Replicating text on sheet ['LED_Array_3']
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1012:Replicating text on sheet ['LED_Array_4']
+12-23 00:01:45 root 266:updating GUI message: 'Replicating drawings'
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1046:Replicating drawings
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1052:Replicating drawings on sheet ['LED_Array_2']
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1052:Replicating drawings on sheet ['LED_Array_3']
+12-23 00:01:45 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1052:Replicating drawings on sheet ['LED_Array_4']
+12-23 00:01:46 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 204:Replication complete
