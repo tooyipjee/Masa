@@ -13,7 +13,7 @@ Freenove_ESP32_WS2812 strip_3 = Freenove_ESP32_WS2812(LEDS_COUNT, LEDS_PIN_3, CH
 Freenove_ESP32_WS2812 strip_4 = Freenove_ESP32_WS2812(LEDS_COUNT, LEDS_PIN_4, CHANNEL, TYPE_GRB);
 
 u8 m_color[5][3] = { {255, 0, 0}, {0, 255, 0}, {0, 0, 255}, {255, 255, 255}, {0, 0, 0} };
-int delayval = 100;
+int delayval = 1000;
 u8 digit_row_interlace[11][4] = {
   {0,8,13,21},
   {7,8,13,14},
@@ -22,7 +22,7 @@ u8 digit_row_interlace[11][4] = {
   {6,9,12,15},
   {2,6,15,19},
   {2,10,11,19},
-  {5,10,12,16},
+  {5,10,11,16},
   {3,5,16,18},
   {3,4,17,18}
 };
@@ -41,18 +41,23 @@ u8 digit_row[11][2] = {
   {3,18},
 };
 
+int brightness = 10;
 void setup() {
   strip_1.begin();
-  strip_1.setBrightness(10);  
+  
 
   strip_2.begin();
-  strip_2.setBrightness(10);  
+  
 
   strip_3.begin();
-  strip_3.setBrightness(10);  
+  
 
   strip_4.begin();
-  strip_4.setBrightness(10);  
+
+  strip_1.setBrightness(brightness);  
+  strip_2.setBrightness(brightness);  
+  strip_3.setBrightness(brightness);  
+  strip_4.setBrightness(brightness);  
 
   Serial.begin(115200);
 }
@@ -101,5 +106,16 @@ void loop() {
     }
     delay(500);
   }
-  
+
+  brightness = brightness + 10;
+
+  if(brightness >= 100)
+  {
+    brightness = 10;
+  }
+  strip_1.setBrightness(brightness);  
+  strip_2.setBrightness(brightness);  
+  strip_3.setBrightness(brightness);  
+  strip_4.setBrightness(brightness);  
+
 }
