@@ -20,7 +20,7 @@ class Clock
     Timezone timeObj;
     String currentTime;
     double lastUpdateTick = 0;
-    int updatePeriod_s = 0;    
+    int updatePeriod_s = 10000;    
     int D, M, Y, h, m, s;
 
     int ledTime[2];

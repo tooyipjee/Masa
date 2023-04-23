@@ -2,7 +2,10 @@
 #include "Clock.h"
 #include "Led.h"
 #include "Masa_SHT20.h"
+#include "OTA.h"
+#include <WiFiManager.h> // https://github.com/tzapu/WiFiManager
 #include <WiFi.h>
+
 #define     LEDS_COUNT  22
 #define     LEDS_PIN_1  8
 #define     LEDS_PIN_2  7
@@ -13,19 +16,38 @@
 #define SCL       11
 #define LIGHT_SIG 12
 
+#define WIFI_PIN  0
+
 Clock clk;
 Led led_1;
 Led led_2;
 Led led_3;
 Led led_4;
 Masa_SHT20 sht20(&Wire, SHT20_I2C_ADDR);
-
+WiFiManager wm;
 void setup()
 {
   Serial.begin(115200);
-  WiFi.begin(ssid, password);
+  delay(1000);
+  // Configure and start the WiFi station
+  WiFi.mode(WIFI_STA);
+//  Reset the WM settings to relaunch web portal.
+  if (digitalRead(WIFI_PIN) == LOW)
+  {
+    wm.resetSettings();
+  }
+  bool res;
+  res = wm.autoConnect("Masa_AP", "elektroThing"); // password protected app
+  if (!res) {
+    Serial.println("Failed to connect");
+    wm.setConfigPortalTimeout(60);
+    ESP.restart();
+  }
+  setupOTAWiFiMuted("Masa");
+
   waitForSync();
   Serial.println("Synced!");
+
   clk.init(timezone, 10);
   led_1.init(LEDS_PIN_1 , LEDS_COUNT);
   led_2.init(LEDS_PIN_2 , LEDS_COUNT);
@@ -43,6 +65,8 @@ void setup()
 }
 void loop()
 {
+
+  ArduinoOTA.handle();
   //  SHT20
   float humd = sht20.readHumidity(); //Read the measured data of air humidity
   float temp = sht20.readTemperature(); //Read the measured temp data
@@ -68,10 +92,9 @@ void loop()
   led_3.update();
   led_4.update();
 
-
+  TelnetStream.println("Time: " + clk.getTime());
   //  Serial.println(analogRead(LIGHT_SIG));
-  Serial.println("Time: " + clk.getTime());
 
 
-  delay(2000);
+  delay(500);
 }

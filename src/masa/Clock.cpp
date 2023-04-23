@@ -8,13 +8,13 @@ Clock::Clock()
 void Clock::init(const char* _timezone, int _updatePeriod_s)
 {
   timeObj.setLocation(_timezone);
-  updatePeriod_s = _updatePeriod_s*1000;
+  updatePeriod_s = _updatePeriod_s * 1000;
 
 };
 
 void Clock::update()
 {
-  if(millis() > lastUpdateTick + updatePeriod_s)
+  if (millis() > lastUpdateTick + updatePeriod_s)
   {
     lastUpdateTick = millis();
     currentTime = timeObj.dateTime();
@@ -29,7 +29,8 @@ void Clock::update()
     ledTime[0] = h;
     ledTime[1] = m;
   }
-  
+  Serial.println("Time: " + currentTime);
+
 };
 
 String Clock::getTime()
@@ -49,19 +50,19 @@ int Clock::getMin()
 
 int Clock::getLedTime()
 {
-  return h*100+m;
+  return h * 100 + m;
 }
 
 int Clock::getDigit(int idx)
 {
-//  Get index - 0 to 3 (from right to left) - e.g. 0 is the minute, 3 is the hour 
-  int t = h*100+m;
+  //  Get index - 0 to 3 (from right to left) - e.g. 0 is the minute, 3 is the hour
+  int t = h * 100 + m;
   for (int i = 0; i < idx; i++)
   {
-    
-    t = t/10;
-//    Serial.println(t);
+
+    t = t / 10;
+    //    Serial.println(t);
   }
-  t = t%10;
+  t = t % 10;
   return t;
 }
