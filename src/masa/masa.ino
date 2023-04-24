@@ -27,15 +27,18 @@ Led led_3;
 Led led_4;
 Masa_SHT20 sht20(&Wire, SHT20_I2C_ADDR);
 WiFiManager wm;
-WiFiManagerParameter custom_mqtt_server("server", "mqtt server", "", 40);
+WiFiManagerParameter custom_param_timezone("server", "Timezone", "", 40);
+WiFiManagerParameter custom_param_weather("server", "Location", "", 40);
+
 String timezone;
+String weather;
 Preferences preferences;
 
 void setup()
 {
   Serial.begin(115200);
   preferences.begin("credentials", false); 
-  wm.addParameter(&custom_mqtt_server);
+  wm.addParameter(&custom_param_timezone);
   wm.setSaveParamsCallback(saveParamsCallback);
   delay(1000);
   // Configure and start the WiFi station
@@ -60,8 +63,11 @@ void setup()
   Serial.println("Synced!");
 
   timezone = preferences.getString("timezone", "");
+  weather = preferences.getString("weather", "");
+
   Serial.println(timezone);
-  Serial.println(preferences.getString("timezone", ""));
+  Serial.println(weather);
+
   clk.init(timezone.c_str(), 10);
   
   led_1.init(LEDS_PIN_1 , LEDS_COUNT);
@@ -114,10 +120,14 @@ void loop()
 }
 
 void saveParamsCallback () {
-  Serial.println("Get Params:");
-  Serial.print(custom_mqtt_server.getID());
-  Serial.print(" : ");
-  String value = custom_mqtt_server.getValue();
-  Serial.println(value);
-  preferences.putString("timezone", value); 
+  String tz = custom_param_timezone.getValue();
+  String wt = custom_param_weather.getValue();
+
+
+  Serial.print("Timezone: "); Serial.println(tz);
+  Serial.print("Weather: "); Serial.println(wt);
+
+  preferences.putString("timezone", tz); 
+  preferences.putString("weather", tz); 
+
 }
