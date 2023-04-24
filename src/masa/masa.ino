@@ -27,8 +27,8 @@ Led led_3;
 Led led_4;
 Masa_SHT20 sht20(&Wire, SHT20_I2C_ADDR);
 WiFiManager wm;
-WiFiManagerParameter custom_param_timezone("server", "Timezone", "", 40);
-WiFiManagerParameter custom_param_weather("server", "Location", "", 40);
+WiFiManagerParameter custom_param_timezone("tz", "Timezone", "", 40);
+WiFiManagerParameter custom_param_weather("wt", "Location", "", 40);
 
 String timezone;
 String weather;
@@ -39,6 +39,7 @@ void setup()
   Serial.begin(115200);
   preferences.begin("credentials", false); 
   wm.addParameter(&custom_param_timezone);
+  wm.addParameter(&custom_param_weather);
   wm.setSaveParamsCallback(saveParamsCallback);
   delay(1000);
   // Configure and start the WiFi station
