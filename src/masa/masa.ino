@@ -130,6 +130,6 @@ void saveParamsCallback () {
   Serial.print("Weather: "); Serial.println(wt);
 
   preferences.putString("timezone", tz); 
-  preferences.putString("weather", tz); 
+  preferences.putString("weather", wt); 
 
 }
