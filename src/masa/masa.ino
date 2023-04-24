@@ -69,7 +69,7 @@ void setup()
   Serial.println(timezone);
   Serial.println(weather);
 
-  clk.init(timezone.c_str(), 10);
+  clk.init(timezone.c_str(), 60);
   
   led_1.init(LEDS_PIN_1 , LEDS_COUNT);
   led_2.init(LEDS_PIN_2 , LEDS_COUNT);
@@ -93,7 +93,8 @@ void loop()
   float humd = sht20.readHumidity(); //Read the measured data of air humidity
   float temp = sht20.readTemperature(); //Read the measured temp data
 
-  Serial.println(temp);
+
+  // Serial.println(temp);
 
   clk.update();
 
@@ -114,10 +115,10 @@ void loop()
   led_3.update();
   led_4.update();
 
-  TelnetStream.println("Time: " + clk.getTime());
-  TelnetStream.println(timezone);
-
-  delay(500);
+  TelnetStream.print("Time: " + clk.getTime());
+  TelnetStream.print(", Temp.: "); TelnetStream.print(temp); 
+  TelnetStream.print(", Humd.: "); TelnetStream.println(humd); 
+  delay(10);
 }
 
 void saveParamsCallback () {
